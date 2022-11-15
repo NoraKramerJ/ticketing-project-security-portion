@@ -1,4 +1,4 @@
-package com.cydeo.repository;
+package com.cydeo.service.repository;
 
 import com.cydeo.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

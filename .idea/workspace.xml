@@ -4,14 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a5fc296-6d9e-4ca1-874a-d5857fdc6c84" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/ticketing-project-security-portion.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cydeo/config/SecurityConfig.java" afterDir="false" />
+    <list default="true" id="3a5fc296-6d9e-4ca1-874a-d5857fdc6c84" name="Changes" comment="building SercurityService interface and SecurityService impl and override the methods loadUserByUsername to convert entity object to user spring object">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cydeo/entity/common/UserPrincipal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cydeo/service/SecurityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cydeo/service/impl/SecurityServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cydeo/TicketingProjectSecurityApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cydeo/TicketingProjectSecurityApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticketing-project-security-portion.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cydeo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cydeo/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cydeo/repository/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cydeo/service/repository/ProjectRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cydeo/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cydeo/service/repository/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cydeo/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cydeo/service/repository/TaskRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cydeo/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cydeo/service/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cydeo/service/impl/ProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cydeo/service/impl/ProjectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cydeo/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cydeo/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cydeo/service/impl/TaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cydeo/service/impl/TaskServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cydeo/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cydeo/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +29,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -75,7 +84,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "database.query.execution"
+    "settings.editor.selected.configurable": "database.query.execution",
+    "show.run.dashboard.notification": "false",
+    "spring.configuration.checksum": "bddbb9667c225850d5df907943a50c72"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -97,7 +108,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.TicketingProjectSecurityApplication">
-    <configuration name="TicketingProjectSecurityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="TicketingProjectSecurityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
       <module name="ticketing-project-security-portion" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.cydeo.TicketingProjectSecurityApp" />
       <method v="2">
@@ -111,6 +122,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.TicketingProjectSecurityApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -120,8 +136,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668439276872</updated>
-      <workItem from="1668439278889" duration="7659000" />
+      <workItem from="1668439278889" duration="11701000" />
+      <workItem from="1668475345714" duration="2117000" />
     </task>
+    <task id="LOCAL-00001" summary="created SecurityConfig and @Bean PasswordEncoder">
+      <created>1668449772923</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1668449772924</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,5 +162,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="created SecurityConfig and @Bean PasswordEncoder" />
+    <MESSAGE value="building SercurityService interface and SecurityService impl and override the methods loadUserByUsername to convert entity object to user spring object" />
+    <option name="LAST_COMMIT_MESSAGE" value="building SercurityService interface and SecurityService impl and override the methods loadUserByUsername to convert entity object to user spring object" />
   </component>
 </project>
